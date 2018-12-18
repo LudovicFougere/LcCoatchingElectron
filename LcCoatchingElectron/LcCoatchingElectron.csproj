@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="MySql.Data" Version="8.0.13" />
     <PackageReference Include="React.AspNet" Version="3.4.1" />
   </ItemGroup>
   <ItemGroup>
@@ -21,6 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="ClientApp\components\AddUser.tsx" />
+    <None Remove="ClientApp\components\FetchClients.tsx" />
     <None Remove="ClientApp\components\FetchUsers.tsx" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +52,7 @@
   </Target>
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\components\AddUser.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\FetchClients.tsx" />
     <TypeScriptCompile Include="ClientApp\components\FetchUsers.tsx" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +69,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Shared\_Layout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Clients\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\_ViewImports.cshtml">

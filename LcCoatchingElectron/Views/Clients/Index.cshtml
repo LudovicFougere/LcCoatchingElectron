@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LcCoatchingElectron.Models.Client>
+@{
+    ViewBag.Title = "Liste des clients";
+}
+<h2>Liste des clients</h2>
+<table class="table">
+    <tr>
+        <th>Client ID</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>E-mail</th>
+        <th>Téléphone</th>
+        <th>Date de naissance</th>
+        <th>Genre</th>
+        <th>Taille</th>
+        <th>Poids</th>
+        <th>Projet</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateNaissance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Taille)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poids)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Projet)
+        </td>
+    </tr>
+    }
+</table>

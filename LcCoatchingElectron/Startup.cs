@@ -12,6 +12,7 @@ using JavaScriptEngineSwitcher.Core;
 using JavaScriptEngineSwitcher.ChakraCore;
 using React.AspNet;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using LcCoatchingElectron.Models;
 
 namespace LcCoatchingElectron
 {
@@ -26,8 +27,9 @@ namespace LcCoatchingElectron
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {            
             services.AddMvc();
+            services.Add(new ServiceDescriptor(typeof(DbContext), new DbContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

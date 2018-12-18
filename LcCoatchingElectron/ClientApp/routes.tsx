@@ -6,11 +6,11 @@ import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { FetchUsers } from './components/FetchUSers';
 import { AddUser } from './components/AddUser';
+import { FetchClients } from './components/FetchClients';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
     <Route path='/counter' component={ Counter } />
     <Route path='/fetchdata' component={FetchData} />
-    <Route path='/fetchusers' component={FetchUsers} />
-    <Route path='/adduser' component={AddUser} />
+    <Route path='/fetchclients' component={FetchClients} />
 </Layout>;
