@@ -8,6 +8,7 @@ interface FetchClientExampleState {
 }
 
 export class FetchClients extends React.Component<RouteComponentProps<{}>, FetchClientExampleState> {
+    static props: any;
     constructor() {
         super();
         this.state = { clients: [], loading: true };
@@ -44,6 +45,7 @@ export class FetchClients extends React.Component<RouteComponentProps<{}>, Fetch
                     <th>Taille</th>
                     <th>Poids</th>
                     <th>Projet</th>
+                  
                 </tr>
             </thead>
             <tbody>
@@ -60,10 +62,16 @@ export class FetchClients extends React.Component<RouteComponentProps<{}>, Fetch
                         <td>{c.taille}</td>
                         <td>{c.poids}</td>
                         <td>{c.projet}</td>
+                        <td>
+                            <a className="action" onClick={(id) => this.handleDetails(c.id)}>Edit</a> 
+                        </td>
                     </tr>
                 )}
             </tbody>
         </table>;
+    }
+    static handleDetails(id: number): any {
+        this.props.history.push("/Clients/Details/" + id);
     }
 }
 

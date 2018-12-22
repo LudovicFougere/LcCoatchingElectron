@@ -12,6 +12,7 @@ namespace LcCoatchingElectron.Controllers
     [Route("api/[controller]")]
     public class ClientsController : Controller
     {
+
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -23,10 +24,33 @@ namespace LcCoatchingElectron.Controllers
         [HttpGet("[action]")]
         public IEnumerable<Client> GetAllClients()
         {
+
             DbContext context = HttpContext.RequestServices.GetService(typeof(DbContext)) as DbContext;
             return context.GetClients();
         }
-   
+
+        [HttpGet]
+        [Route("api/Clients/Details")]
+        public Client GetClient(string strId)
+        {
+
+            DbContext context = HttpContext.RequestServices.GetService(typeof(DbContext)) as DbContext;
+            int id = 0;
+            if (int.TryParse(strId, out id))
+                return context.GetClient(id);
+            else
+                return null;
+        }
+
+
+        [HttpPut]
+        [Route("api/Clients/Edit")]
+        public int Edit(Client user)
+        {
+            DbContext context = HttpContext.RequestServices.GetService(typeof(DbContext)) as DbContext;
+            return context.UpdatClient(user);
+        }
+
     }
 }
 
